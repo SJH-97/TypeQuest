@@ -50,3 +50,10 @@ input {
     display: none;
     /* to be display flex when shown */
 }
+
+button {
+    border: 2px #3CCF4E;
+    border-style: solid;
+    background-color: black;
+    margin-bottom: 10px;
+}
