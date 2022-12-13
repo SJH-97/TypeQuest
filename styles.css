@@ -16,17 +16,37 @@ html, body {
 p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
     color: #3CCF4E;
+    font-family: 'VT323', 'Press Start 2P', monospace;
+    font-size: 5ch;
   }
 
   #root, #__next {
     isolation: isolate;
   }
 
-/* container */
+/* containers */
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: inherit;
+}
+
+.container-inner {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+
+
+img {
+    width: 50px;
+    max-width: 100%;
+}
+
+input {
+    display: none;
+    /* to be display flex when shown */
 }
