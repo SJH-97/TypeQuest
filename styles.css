@@ -56,4 +56,21 @@ button {
     border-style: solid;
     background-color: black;
     margin-bottom: 10px;
+    cursor: pointer;
 }
+
+/* instructions modal */
+
+#instructions-modal {
+    display: none;
+    max-width: 50%;
+}
+
+#instructions-modal.open {
+  display: block;
+}
+
+
+
+
+

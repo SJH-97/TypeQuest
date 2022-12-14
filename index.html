@@ -17,7 +17,10 @@
             </div>
             <input type="text">
             <button id="play"><h2>Play</h2></button>
-            <button id="instructions"><h2>Instructions</h2></button>
+            <button id="instructions-button" onclick="handleModalClicked(event)"><h2>Instructions</h2></button>
+            <div id="instructions-modal">
+                <p>Enter the word you see on the screen as fast as you can in order to score and add time to the countdown!</p>
+            </div>
         </div>
       
         <script src="./index.js" async defer></script>
