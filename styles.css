@@ -81,9 +81,18 @@ button {
 #volume-on {
   grid-column-start: first-col; 
   grid-row-start: first-row;
+  display: none;
+}
+
+#volume-on.show {
+  display: block;
 }
 
 #volume-off {
   grid-column-start: first-col; 
-  grid-row-start: first-row
+  grid-row-start: first-row;
+}
+
+#volume-off.on {
+  display: none;
 }

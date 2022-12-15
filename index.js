@@ -21,3 +21,23 @@ document.body.addEventListener("click", () => toggleDropdown());
 
 // Toggle Music
 
+const handleVolume = (event) => {
+  event.stopPropagation();
+  const volumeOn = document.getElementById("volume-off");
+  toggleVolume(!volumeOn.classList.contains("on"));
+};
+
+const toggleVolume = (shouldBeOn) => {
+  const volumeOn = document.getElementById("volume-off");
+  const volumeOff = document.getElementById("volume-on");
+
+  if (shouldBeOn) {
+    volumeOn.classList.add("on");
+    volumeOff.classList.add('show')
+  } else {
+    volumeOn.classList.remove("on");
+  }
+
+};
+
+document.body.addEventListener("click", () => toggleVolume());
