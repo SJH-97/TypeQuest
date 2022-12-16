@@ -32,12 +32,10 @@ const toggleVolume = (shouldBeOn) => {
   const volumeOff = document.getElementById("volume-on");
   const myAudio = document.querySelector('#audio')
 
-  
-
   if (shouldBeOn) {
     volumeOn.classList.add("on");
     volumeOff.classList.add('show');
-   
+
     myAudio.play();
 
     myAudio.addEventListener('timeupdate', function(){
