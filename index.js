@@ -30,12 +30,27 @@ const handleVolume = (event) => {
 const toggleVolume = (shouldBeOn) => {
   const volumeOn = document.getElementById("volume-off");
   const volumeOff = document.getElementById("volume-on");
+  const myAudio = document.querySelector('#audio')
+
+  
 
   if (shouldBeOn) {
     volumeOn.classList.add("on");
-    volumeOff.classList.add('show')
+    volumeOff.classList.add('show');
+   
+    myAudio.play();
+
+    myAudio.addEventListener('timeupdate', function(){
+      var buffer = .44
+      if(this.currentTime > this.duration - buffer){
+          this.currentTime = 0
+          this.play()
+      }
+    });
+
   } else {
     volumeOn.classList.remove("on");
+    myAudio.pause()
   }
 
 };
