@@ -70,7 +70,29 @@ button {
   display: block;
 }
 
+/* Volume icons */
 
+.image-container {
+  display: grid;
+  grid-template-columns: [first-col] 100%;
+  grid-template-rows: [first-row] 100%;
+}
 
+#volume-on {
+  grid-column-start: first-col; 
+  grid-row-start: first-row;
+  display: none;
+}
 
+#volume-on.show {
+  display: block;
+}
 
+#volume-off {
+  grid-column-start: first-col; 
+  grid-row-start: first-row;
+}
+
+#volume-off.on {
+  display: none;
+}
