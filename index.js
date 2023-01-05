@@ -1,27 +1,30 @@
 // Get Elements
 
-const dropdown = document.getElementById("instructions-modal");
+const instructionsModal = document.getElementById("instructions-modal");
+const instructionsButton = document.getElementById("instructions-button")
 const imageContainer = document.getElementsByClassName("image-container");
 const volumeOn = document.getElementById("volume-off");
 const volumeOff = document.getElementById("volume-on");
-const myAudio = document.querySelector("#audio");
+const audio = document.getElementById("audio");
+const playButton = document.getElementById("play-button");
+const input = document.getElementById("input");
 
 // Toggle Modal
 
 function handleModalClicked(event) {
   event.stopPropagation();
-  toggleDropdown(!dropdown.classList.contains("open"));
+  toggleDropdown(!instructionsModal.classList.contains("open"));
 }
 
 function toggleDropdown(shouldOpen) {
   if (shouldOpen) {
-    dropdown.classList.add("open");
+    instructionsModal.classList.add("open");
   } else {
-    dropdown.classList.remove("open");
+    instructionsModal.classList.remove("open");
   }
 }
 
-dropdown.addEventListener("click", () => toggleDropdown());
+instructionsModal.addEventListener("click", () => toggleDropdown());
 
 // Toggle Music
 
@@ -34,8 +37,8 @@ function toggleVolume(shouldBeOn) {
   if (shouldBeOn) {
     volumeOn.classList.add("on");
     volumeOff.classList.add("show");
-    myAudio.play();
-    myAudio.addEventListener("timeupdate", function () {
+    audio.play();
+    audio.addEventListener("timeupdate", function () {
       let buffer = 0.44;
 
       if (this.currentTime > this.duration - buffer) {
@@ -45,8 +48,26 @@ function toggleVolume(shouldBeOn) {
     });
   } else {
     volumeOn.classList.remove("on");
-    myAudio.pause();
+    audio.pause();
   }
 }
 
 imageContainer.addEventListener("click", () => toggleVolume());
+
+// togglePlay 
+
+function handlePlayClicked(event) {
+  event.stopPropagation;
+  togglePlay();
+}
+
+function togglePlay() {
+  playButton.classList.add("hide");
+  instructionsButton.classList.add("hide");
+  input.classList.add("show");
+
+
+  if (instructionsModal.classList.contains("open")) {
+    instructionsModal.classList.remove("open");
+  };
+}

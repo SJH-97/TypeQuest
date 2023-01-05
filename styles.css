@@ -52,6 +52,17 @@ input {
     /* to be display flex when shown */
 }
 
+input.show {
+  display: flex;
+  color: #3CCF4E;
+  background-color: black;
+  border: 3px solid #3CCF4E;
+  outline: none;
+  font-family: 'VT323', 'Press Start 2P', monospace;
+  padding: 10px;
+  font-size: 5ch;
+}
+
 button {
     border: 2px #3CCF4E;
     border-style: solid;
@@ -61,6 +72,10 @@ button {
 }
 
 /* instructions modal */
+
+#instructions-button.hide {
+  display: none;
+}
 
 #instructions-modal {
     display: none;
@@ -95,5 +110,11 @@ button {
 }
 
 #volume-off.on {
+  display: none;
+}
+
+/* play button */
+
+#play-button.hide{
   display: none;
 }
