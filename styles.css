@@ -88,7 +88,7 @@ button {
 
 /* Volume icons */
 
-.image-container {
+#image-container {
   display: grid;
   grid-template-columns: [first-col] 100%;
   grid-template-rows: [first-row] 100%;

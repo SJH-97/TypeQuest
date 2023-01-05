@@ -2,7 +2,7 @@
 
 const instructionsModal = document.getElementById("instructions-modal");
 const instructionsButton = document.getElementById("instructions-button")
-const imageContainer = document.getElementsByClassName("image-container");
+const imageContainer = document.getElementById("image-container");
 const volumeOn = document.getElementById("volume-off");
 const volumeOff = document.getElementById("volume-on");
 const audio = document.getElementById("audio");
