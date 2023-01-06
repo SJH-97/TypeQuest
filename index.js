@@ -1,7 +1,7 @@
 // Get Elements
 
 const instructionsModal = document.getElementById("instructions-modal");
-const instructionsButton = document.getElementById("instructions-button")
+const instructionsButton = document.getElementById("instructions-button");
 const imageContainer = document.getElementById("image-container");
 const volumeOn = document.getElementById("volume-off");
 const volumeOff = document.getElementById("volume-on");
@@ -54,7 +54,7 @@ function toggleVolume(shouldBeOn) {
 
 imageContainer.addEventListener("click", () => toggleVolume());
 
-// togglePlay 
+// togglePlay
 
 function handlePlayClicked(event) {
   event.stopPropagation;
@@ -66,8 +66,7 @@ function togglePlay() {
   instructionsButton.classList.add("hide");
   input.classList.add("show");
 
-
   if (instructionsModal.classList.contains("open")) {
     instructionsModal.classList.remove("open");
-  };
+  }
 }

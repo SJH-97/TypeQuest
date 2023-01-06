@@ -1,74 +1,81 @@
 /* Global style reset */
-*, *::before, *::after {
-    box-sizing: border-box;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 * {
-    margin: 0;
-  }
+  margin: 0;
+}
 
-html, body {
-    height: 100%;
-    background-color: black;
-    margin: auto;
-  }
+html,
+body {
+  height: 100%;
+  background-color: black;
+  margin: auto;
+}
 
-p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-    color: #3CCF4E;
-    font-family: 'VT323', 'Press Start 2P', monospace;
-    font-size: 5ch;
-    text-align: center;
-  }
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  color: #3ccf4e;
+  font-family: "VT323", "Press Start 2P", monospace;
+  font-size: 5ch;
+  text-align: center;
+}
 
-  #root, #__next {
-    isolation: isolate;
-  }
+#root,
+#__next {
+  isolation: isolate;
+}
 
 /* containers */
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: inherit;
 }
 
 .container-inner {
-    display: flex;
-    align-items: center;
-    padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
 }
 
-
-
 img {
-    width: 50px;
-    max-width: 100%;
+  width: 50px;
+  max-width: 100%;
 }
 
 input {
-    display: none;
-    /* to be display flex when shown */
+  display: none;
 }
 
 input.show {
   display: flex;
-  color: #3CCF4E;
+  color: #3ccf4e;
   background-color: black;
-  border: 3px solid #3CCF4E;
+  border: 3px solid #3ccf4e;
   outline: none;
-  font-family: 'VT323', 'Press Start 2P', monospace;
+  font-family: "VT323", "Press Start 2P", monospace;
   padding: 10px;
   font-size: 5ch;
 }
 
 button {
-    border: 2px #3CCF4E;
-    border-style: solid;
-    background-color: black;
-    margin-bottom: 10px;
-    cursor: pointer;
+  border: 2px #3ccf4e;
+  border-style: solid;
+  background-color: black;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 /* instructions modal */
@@ -78,8 +85,8 @@ button {
 }
 
 #instructions-modal {
-    display: none;
-    max-width: 50%;
+  display: none;
+  max-width: 50%;
 }
 
 #instructions-modal.open {
@@ -95,7 +102,7 @@ button {
 }
 
 #volume-on {
-  grid-column-start: first-col; 
+  grid-column-start: first-col;
   grid-row-start: first-row;
   display: none;
 }
@@ -105,7 +112,7 @@ button {
 }
 
 #volume-off {
-  grid-column-start: first-col; 
+  grid-column-start: first-col;
   grid-row-start: first-row;
 }
 
@@ -115,6 +122,6 @@ button {
 
 /* play button */
 
-#play-button.hide{
+#play-button.hide {
   display: none;
 }

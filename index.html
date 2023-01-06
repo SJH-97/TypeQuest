@@ -33,8 +33,20 @@
         <img src="./assets/wizard.svg" alt="wizard icon" />
         <h1>TypeQuest</h1>
       </div>
-      <input type="text" id="input"/>
-      <button id="play-button" onclick="handlePlayClicked(event)"><h2>Play</h2></button>
+      <div>
+        <p>{Random Word}</p>
+      </div>
+      <div id="input-container">
+        <input type="text" id="input" />
+        <p>Time Left: 10s</p>
+      </div>
+      
+      <div>
+        <p>Score: 0</p>
+      </div>
+      <button id="play-button" onclick="handlePlayClicked(event)">
+        <h2>Play</h2>
+      </button>
       <button id="instructions-button" onclick="handleModalClicked(event)">
         <h2>Instructions</h2>
       </button>
