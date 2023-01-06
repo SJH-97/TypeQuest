@@ -1,56 +1,72 @@
+// Get Elements
+
+const instructionsModal = document.getElementById("instructions-modal");
+const instructionsButton = document.getElementById("instructions-button");
+const imageContainer = document.getElementById("image-container");
+const volumeOn = document.getElementById("volume-off");
+const volumeOff = document.getElementById("volume-on");
+const audio = document.getElementById("audio");
+const playButton = document.getElementById("play-button");
+const input = document.getElementById("input");
+
 // Toggle Modal
 
-const handleModalClicked = (event) => {
-    event.stopPropagation();
-    const dropdown = document.getElementById("instructions-modal");
-    toggleDropdown(!dropdown.classList.contains("open"));
-  };
+function handleModalClicked(event) {
+  event.stopPropagation();
+  toggleDropdown(!instructionsModal.classList.contains("open"));
+}
 
-const toggleDropdown = (shouldOpen) => {
-    const dropdown = document.getElementById("instructions-modal");
-  
-    if (shouldOpen) {
-      dropdown.classList.add("open");
-    } else {
-      dropdown.classList.remove("open");
-    }
-  
-  };
-  
-document.body.addEventListener("click", () => toggleDropdown());
+function toggleDropdown(shouldOpen) {
+  if (shouldOpen) {
+    instructionsModal.classList.add("open");
+  } else {
+    instructionsModal.classList.remove("open");
+  }
+}
+
+instructionsModal.addEventListener("click", () => toggleDropdown());
 
 // Toggle Music
 
-const handleVolume = (event) => {
+function handleVolume(event) {
   event.stopPropagation();
-  const volumeOn = document.getElementById("volume-off");
   toggleVolume(!volumeOn.classList.contains("on"));
-};
+}
 
-const toggleVolume = (shouldBeOn) => {
-  const volumeOn = document.getElementById("volume-off");
-  const volumeOff = document.getElementById("volume-on");
-  const myAudio = document.querySelector('#audio')
-
+function toggleVolume(shouldBeOn) {
   if (shouldBeOn) {
     volumeOn.classList.add("on");
-    volumeOff.classList.add('show');
+    volumeOff.classList.add("show");
+    audio.play();
+    audio.addEventListener("timeupdate", function () {
+      let buffer = 0.44;
 
-    myAudio.play();
-
-    myAudio.addEventListener('timeupdate', function(){
-      var buffer = .44
-      if(this.currentTime > this.duration - buffer){
-          this.currentTime = 0
-          this.play()
+      if (this.currentTime > this.duration - buffer) {
+        this.currentTime = 0;
+        this.play();
       }
     });
-
   } else {
     volumeOn.classList.remove("on");
-    myAudio.pause()
+    audio.pause();
   }
+}
 
-};
+imageContainer.addEventListener("click", () => toggleVolume());
 
-document.body.addEventListener("click", () => toggleVolume());
+// togglePlay
+
+function handlePlayClicked(event) {
+  event.stopPropagation;
+  togglePlay();
+}
+
+function togglePlay() {
+  playButton.classList.add("hide");
+  instructionsButton.classList.add("hide");
+  input.classList.add("show");
+
+  if (instructionsModal.classList.contains("open")) {
+    instructionsModal.classList.remove("open");
+  }
+}
