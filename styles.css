@@ -125,3 +125,27 @@ button {
 #play-button.hide {
   display: none;
 }
+
+#random-word {
+  display: none;
+}
+
+#random-word.show {
+  display: block;
+}
+
+#time-left {
+  display: none;
+}
+
+#time-left.show {
+  display: block;
+}
+
+#score {
+  display: none;
+}
+
+#score.play {
+  display: block;
+}
