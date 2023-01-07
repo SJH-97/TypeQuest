@@ -28,22 +28,16 @@
           onclick="handleVolume(event)"
         />
       </div>
-
       <div class="container-inner">
         <img src="./assets/wizard.svg" alt="wizard icon" />
         <h1>TypeQuest</h1>
       </div>
-      <div>
-        <p>{Random Word}</p>
-      </div>
+      <p id="random-word">{Random Word}</p>
       <div id="input-container">
         <input type="text" id="input" />
-        <p>Time Left: 10s</p>
+        <p id="time-left">Time Left: 10s</p>
       </div>
-      
-      <div>
-        <p>Score: 0</p>
-      </div>
+      <p id="score">Score: 0</p>
       <button id="play-button" onclick="handlePlayClicked(event)">
         <h2>Play</h2>
       </button>

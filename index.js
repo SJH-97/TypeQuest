@@ -8,6 +8,9 @@ const volumeOff = document.getElementById("volume-on");
 const audio = document.getElementById("audio");
 const playButton = document.getElementById("play-button");
 const input = document.getElementById("input");
+const randomWord = document.getElementById("random-word");
+const timeLeft = document.getElementById("time-left");
+const score = document.getElementById("score");
 
 // Toggle Modal
 
@@ -59,14 +62,26 @@ imageContainer.addEventListener("click", () => toggleVolume());
 function handlePlayClicked(event) {
   event.stopPropagation;
   togglePlay();
+  fetchWords();
+  startCountDown();
 }
 
 function togglePlay() {
   playButton.classList.add("hide");
   instructionsButton.classList.add("hide");
   input.classList.add("show");
+  randomWord.classList.add("show");
+  timeLeft.classList.add("show");
+  score.classList.add("show");
 
   if (instructionsModal.classList.contains("open")) {
     instructionsModal.classList.remove("open");
   }
+}
+
+async function fetchWords(){
+  const response = await fetch("https://random-word-api.herokuapp.com/word?number=10");
+  const randomWords = await response.json();
+  console.log(randomWords);
+  return await randomWords;
 }
