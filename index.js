@@ -79,9 +79,30 @@ function togglePlay() {
   }
 }
 
-async function fetchWords(){
-  const response = await fetch("https://random-word-api.herokuapp.com/word?number=10");
+// get random words from API and store in an array
+
+async function fetchWords() {
+  const response = await fetch(
+    "https://random-word-api.herokuapp.com/word?number=10"
+  );
   const randomWords = await response.json();
   console.log(randomWords);
   return await randomWords;
+}
+
+// countdown
+
+function startCountDown() {
+  let startTime = 10;
+  const timer = setInterval(() => {
+    startTime--;
+    timeLeft.innerHTML = `Time Left: ${startTime}s`;
+
+    if (startTime === 0) {
+      clearInterval(timer);
+      timeLeft.innerHTML = "Times up!";
+      randomWord.classList.remove("show");
+      input.classList.remove("show");
+    }
+  }, 1000);
 }
