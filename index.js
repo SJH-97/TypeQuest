@@ -86,6 +86,7 @@ async function fetchWords() {
     "https://random-word-api.herokuapp.com/word?number=10"
   );
   const randomWords = await response.json();
+  randomWord.innerHTML = randomWords[0];
   console.log(randomWords);
   return await randomWords;
 }
