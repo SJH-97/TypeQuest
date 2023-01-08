@@ -1,4 +1,4 @@
-// Get Elements
+// Get HTML Elements
 
 const instructionsModal = document.getElementById("instructions-modal");
 const instructionsButton = document.getElementById("instructions-button");
@@ -12,7 +12,8 @@ const randomWord = document.getElementById("random-word");
 const timeLeft = document.getElementById("time-left");
 const score = document.getElementById("score");
 
-// default bindings
+// Default Bindings
+
 let startTime = 10;
 
 // Toggle Modal
@@ -60,7 +61,7 @@ function toggleVolume(shouldBeOn) {
 
 imageContainer.addEventListener("click", () => toggleVolume());
 
-// togglePlay
+// Toggle Play
 
 function handlePlayClicked(event) {
   event.stopPropagation;
@@ -82,7 +83,7 @@ function togglePlay() {
   }
 }
 
-// get random words from API and store in an array
+// Get Random Words From API And Store In An Array
 
 async function fetchWords() {
   const response = await fetch(
@@ -94,7 +95,7 @@ async function fetchWords() {
   return await randomWords;
 }
 
-// countdown
+// Countdown
 
 function startCountDown(time) {
   const timer = setInterval(() => {
