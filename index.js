@@ -12,6 +12,9 @@ const randomWord = document.getElementById("random-word");
 const timeLeft = document.getElementById("time-left");
 const score = document.getElementById("score");
 
+// default bindings
+let startTime = 10;
+
 // Toggle Modal
 
 function handleModalClicked(event) {
@@ -63,7 +66,7 @@ function handlePlayClicked(event) {
   event.stopPropagation;
   togglePlay();
   fetchWords();
-  startCountDown();
+  startCountDown(startTime);
 }
 
 function togglePlay() {
@@ -93,11 +96,10 @@ async function fetchWords() {
 
 // countdown
 
-function startCountDown() {
-  let startTime = 10;
+function startCountDown(time) {
   const timer = setInterval(() => {
-    startTime--;
-    timeLeft.innerHTML = `Time Left: ${startTime}s`;
+    time--;
+    timeLeft.innerHTML = `Time Left: ${time}s`;
 
     if (startTime === 0) {
       clearInterval(timer);
