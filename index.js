@@ -102,7 +102,7 @@ function startCountDown(time) {
     time--;
     timeLeft.innerHTML = `Time Left: ${time}s`;
 
-    if (startTime === 0) {
+    if (time === 0) {
       clearInterval(timer);
       timeLeft.innerHTML = "Times up!";
       randomWord.classList.remove("show");
