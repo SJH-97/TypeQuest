@@ -13,8 +13,9 @@ const timeLeft = document.getElementById("time-left");
 const score = document.getElementById("score");
 
 // Default Bindings
-
 let startTime = 10;
+let initialScore = 0;
+let initialWordArr = [];
 
 // Toggle Modal
 
@@ -67,7 +68,7 @@ function handlePlayClicked(event) {
   event.stopPropagation;
   togglePlay();
   fetchWords();
-  startCountDown(startTime);
+  startCountDown();
 }
 
 function togglePlay() {
@@ -90,19 +91,31 @@ async function fetchWords() {
     "https://random-word-api.herokuapp.com/word?number=10"
   );
   const randomWords = await response.json();
-  randomWord.innerHTML = randomWords[0];
-  console.log(randomWords);
+  initialWordArr = randomWords;
+  randomWord.innerHTML = initialWordArr[0];
   return await randomWords;
 }
 
+function handleScore(event) {
+  if (event.target.value === randomWord.innerHTML) {
+    initialScore++;
+    score.innerHTML = `Score: ${initialScore}`;
+    randomWord.innerHTML =
+      initialWordArr[Math.floor(Math.random() * initialWordArr.length)];
+    input.value = "";
+  }
+}
+
+input.addEventListener("click", () => handleScore());
+
 // Countdown
 
-function startCountDown(time) {
+function startCountDown() {
   const timer = setInterval(() => {
-    time--;
-    timeLeft.innerHTML = `Time Left: ${time}s`;
+    startTime--;
+    timeLeft.innerHTML = `Time Left: ${startTime}s`;
 
-    if (time === 0) {
+    if (startTime === 0) {
       clearInterval(timer);
       timeLeft.innerHTML = "Times up!";
       randomWord.classList.remove("show");
