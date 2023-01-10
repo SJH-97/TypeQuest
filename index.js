@@ -88,7 +88,7 @@ function togglePlay() {
 
 async function fetchWords() {
   const response = await fetch(
-    "https://random-word-api.herokuapp.com/word?number=10"
+    "https://random-word-api.herokuapp.com/word?number=100"
   );
   const randomWords = await response.json();
   initialWordArr = randomWords;
