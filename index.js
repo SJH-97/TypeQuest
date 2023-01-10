@@ -1,4 +1,4 @@
-// Get Elements
+// Get HTML Elements
 
 const instructionsModal = document.getElementById("instructions-modal");
 const instructionsButton = document.getElementById("instructions-button");
@@ -11,6 +11,11 @@ const input = document.getElementById("input");
 const randomWord = document.getElementById("random-word");
 const timeLeft = document.getElementById("time-left");
 const score = document.getElementById("score");
+
+// Default Bindings
+let startTime = 10;
+let initialScore = 0;
+let initialWordArr = [];
 
 // Toggle Modal
 
@@ -57,7 +62,7 @@ function toggleVolume(shouldBeOn) {
 
 imageContainer.addEventListener("click", () => toggleVolume());
 
-// togglePlay
+// Toggle Play
 
 function handlePlayClicked(event) {
   event.stopPropagation;
@@ -79,21 +84,33 @@ function togglePlay() {
   }
 }
 
-// get random words from API and store in an array
+// Get Random Words From API And Store In An Array
 
 async function fetchWords() {
   const response = await fetch(
-    "https://random-word-api.herokuapp.com/word?number=10"
+    "https://random-word-api.herokuapp.com/word?number=100"
   );
   const randomWords = await response.json();
-  console.log(randomWords);
+  initialWordArr = randomWords;
+  randomWord.innerHTML = initialWordArr[0];
   return await randomWords;
 }
 
-// countdown
+function handleScore(event) {
+  if (event.target.value === randomWord.innerHTML) {
+    initialScore++;
+    score.innerHTML = `Score: ${initialScore}`;
+    randomWord.innerHTML =
+      initialWordArr[Math.floor(Math.random() * initialWordArr.length)];
+    input.value = "";
+  }
+}
+
+input.addEventListener("click", () => handleScore());
+
+// Countdown
 
 function startCountDown() {
-  let startTime = 10;
   const timer = setInterval(() => {
     startTime--;
     timeLeft.innerHTML = `Time Left: ${startTime}s`;
