@@ -99,6 +99,7 @@ async function fetchWords() {
 function handleScore(event) {
   if (event.target.value === randomWord.innerHTML) {
     initialScore++;
+    startTime+=5;
     score.innerHTML = `Score: ${initialScore}`;
     randomWord.innerHTML =
       initialWordArr[Math.floor(Math.random() * initialWordArr.length)];
