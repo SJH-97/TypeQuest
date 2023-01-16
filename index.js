@@ -47,7 +47,7 @@ function toggleVolume(shouldBeOn) {
     volumeOff.classList.add("show");
     audio.play();
     audio.addEventListener("timeupdate", function () {
-      let buffer = 0.44;
+      let buffer = 0.22;
 
       if (this.currentTime > this.duration - buffer) {
         this.currentTime = 0;
