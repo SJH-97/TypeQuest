@@ -149,3 +149,13 @@ button {
 #score.show {
   display: block;
 }
+
+/* replay */
+
+#replay-button {
+  display: none;
+}
+
+#replay-button.show {
+  display: block;
+}
