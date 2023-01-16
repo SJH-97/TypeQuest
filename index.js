@@ -11,6 +11,7 @@ const input = document.getElementById("input");
 const randomWord = document.getElementById("random-word");
 const timeLeft = document.getElementById("time-left");
 const score = document.getElementById("score");
+const replayButton = document.getElementById("replay-button");
 
 // Default Bindings
 let startTime = 10;
@@ -119,8 +120,22 @@ function startCountDown() {
     if (startTime === 0) {
       clearInterval(timer);
       timeLeft.innerHTML = "Times up!";
+      replayButton.classList.add("show");
       randomWord.classList.remove("show");
       input.classList.remove("show");
     }
   }, 1000);
 }
+
+// Replay 
+
+function handleReplayClicked(event) {
+  event.stopPropagation();
+  toggleReplay();
+}
+
+function toggleReplay() {
+  location.reload();
+}
+
+replayButton.addEventListener('click', () => handleReplayClicked());
