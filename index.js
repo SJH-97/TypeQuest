@@ -70,7 +70,6 @@ function handlePlayClicked(event) {
   event.stopPropagation;
   togglePlay();
   fetchWords();
-  startCountDown();
 }
 
 function togglePlay() {
@@ -99,6 +98,7 @@ async function fetchWords() {
   const randomWords = await response.json();
   initialWordArr = randomWords;
   randomWord.innerHTML = initialWordArr[0];
+  startCountDown();
   return await randomWords;
 }
 
