@@ -86,6 +86,7 @@ function togglePlay() {
     instructionsModal.classList.remove("open");
   }
 
+  input.select();
   handleHighScore();
 }
 
