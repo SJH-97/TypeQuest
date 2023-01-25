@@ -11,6 +11,7 @@ const input = document.getElementById("input");
 const randomWord = document.getElementById("random-word");
 const timeLeft = document.getElementById("time-left");
 const score = document.getElementById("score");
+const highScore = document.getElementById("high-score");
 const replayButton = document.getElementById("replay-button");
 
 // Default Bindings
@@ -79,10 +80,13 @@ function togglePlay() {
   randomWord.classList.add("show");
   timeLeft.classList.add("show");
   score.classList.add("show");
+  highScore.classList.add("show");
 
   if (instructionsModal.classList.contains("open")) {
     instructionsModal.classList.remove("open");
   }
+
+  handleHighScore();
 }
 
 // Get Random Words From API And Store In An Array
@@ -100,7 +104,7 @@ async function fetchWords() {
 function handleScore(event) {
   if (event.target.value === randomWord.innerHTML) {
     initialScore++;
-    startTime+=5;
+    startTime += 3;
     score.innerHTML = `Score: ${initialScore}`;
     randomWord.innerHTML =
       initialWordArr[Math.floor(Math.random() * initialWordArr.length)];
@@ -123,11 +127,13 @@ function startCountDown() {
       replayButton.classList.add("show");
       randomWord.classList.remove("show");
       input.classList.remove("show");
+      score.innerHTML = `Score: ${initialScore}`;
+      handleHighScore();
     }
   }, 1000);
 }
 
-// Replay 
+// Replay
 
 function handleReplayClicked(event) {
   event.stopPropagation();
@@ -138,4 +144,19 @@ function toggleReplay() {
   location.reload();
 }
 
-replayButton.addEventListener('click', () => handleReplayClicked());
+replayButton.addEventListener("click", () => handleReplayClicked());
+
+// High Score
+
+function handleHighScore() {
+  let getScore = window.sessionStorage.getItem("score");
+
+  getScore
+    ? (highScore.innerHTML = `High Score: ${window.sessionStorage.score}`)
+    : `High Score:`;
+
+  if (initialScore > getScore) {
+    window.sessionStorage.setItem("score", `${initialScore}`);
+    highScore.innerHTML = `High Score: ${window.sessionStorage.score}`;
+  }
+}

@@ -150,6 +150,14 @@ button {
   display: block;
 }
 
+#high-score {
+  display: none;
+}
+
+#high-score.show {
+  display: block;
+}
+
 /* replay */
 
 #replay-button {
