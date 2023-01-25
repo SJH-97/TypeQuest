@@ -85,6 +85,8 @@ function togglePlay() {
   if (instructionsModal.classList.contains("open")) {
     instructionsModal.classList.remove("open");
   }
+
+  handleHighScore();
 }
 
 // Get Random Words From API And Store In An Array
@@ -102,12 +104,11 @@ async function fetchWords() {
 function handleScore(event) {
   if (event.target.value === randomWord.innerHTML) {
     initialScore++;
-    startTime += 1;
+    startTime += 3;
     score.innerHTML = `Score: ${initialScore}`;
     randomWord.innerHTML =
       initialWordArr[Math.floor(Math.random() * initialWordArr.length)];
     input.value = "";
-    highScored = initialScore;
   }
 }
 
@@ -126,7 +127,8 @@ function startCountDown() {
       replayButton.classList.add("show");
       randomWord.classList.remove("show");
       input.classList.remove("show");
-      toggleHighScore();
+      score.innerHTML = `Score: ${initialScore}`;
+      handleHighScore();
     }
   }, 1000);
 }
@@ -146,3 +148,15 @@ replayButton.addEventListener("click", () => handleReplayClicked());
 
 // High Score
 
+function handleHighScore() {
+  let getScore = window.sessionStorage.getItem("score");
+
+  getScore
+    ? (highScore.innerHTML = `High Score: ${window.sessionStorage.score}`)
+    : `High Score:`;
+
+  if (initialScore > getScore) {
+    window.sessionStorage.setItem("score", `${initialScore}`);
+    highScore.innerHTML = `High Score: ${window.sessionStorage.score}`;
+  }
+}
