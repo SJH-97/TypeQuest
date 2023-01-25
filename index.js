@@ -142,7 +142,13 @@ function handleReplayClicked(event) {
 }
 
 function toggleReplay() {
-  location.reload();
+  replayButton.classList.remove("show");
+  randomWord.classList.add("show");
+  input.classList.add("show");
+  randomWord.innerHTML =
+      initialWordArr[Math.floor(Math.random() * initialWordArr.length)];
+  startTime += 10;
+  startCountDown();
 }
 
 replayButton.addEventListener("click", () => handleReplayClicked());
